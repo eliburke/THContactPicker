@@ -63,6 +63,7 @@
 	
     self.contacts = [NSMutableDictionary dictionary];
     self.contactKeys = [NSMutableArray array];
+    self.keyboardType = UIKeyboardTypeDefault;
     
     // Create a contact view to determine the height of a line
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
@@ -87,7 +88,7 @@
     self.textField = [[THContactTextField alloc] init];
     self.textField.delegate = self;
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
+
     self.backgroundColor = [UIColor whiteColor];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture)];
@@ -184,6 +185,7 @@
     contactView.keyboardAppearance = self.keyboardAppearance;
     contactView.returnKeyType = self.returnKeyType;
     contactView.delegate = self;
+    contactView.textField.keyboardType = _keyboardType;
     [contactView setFont:self.font];
     
     [self.contacts setObject:contactView forKey:contactKey];
@@ -286,6 +288,11 @@
 
 - (BOOL)becomeFirstResponder {
     return [self.textField becomeFirstResponder];
+}
+
+- (void)setKeyboardType:(UIKeyboardType)keyboardType {
+    _keyboardType = keyboardType;
+    _textField.keyboardType = keyboardType;
 }
 
 #pragma mark - Private functions

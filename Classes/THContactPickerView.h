@@ -32,6 +32,7 @@
 @property (nonatomic, assign) CGFloat verticalPadding;		// amount of padding above and below each contact view
 @property (nonatomic, assign) NSInteger maxNumberOfLines;	// maximum number of lines the view will display before scrolling
 @property (nonatomic, strong) UIFont *font;
+@property (nonatomic, assign) UIKeyboardType keyboardType;  // control keyboard appearance
 
 - (void)addContact:(id)contact withName:(NSString *)name;
 - (void)addContact:(id)contact withName:(NSString *)name withStyle:(THContactViewStyle*)bubbleStyle andSelectedStyle:(THContactViewStyle*) selectedStyle;
