@@ -153,6 +153,10 @@
     [super setBackgroundColor:backgroundColor];
 }
 
+- (void)setEnabled:(BOOL)enabled {
+    self.textField.enabled = enabled;
+}
+
 - (void)addContact:(id)contact withName:(NSString *)name {
 	[self addContact:contact withName:name withStyle:self.contactViewStyle andSelectedStyle:self.contactViewSelectedStyle];
 }
